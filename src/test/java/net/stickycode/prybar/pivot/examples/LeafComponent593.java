@@ -11,7 +11,9 @@ public class LeafComponent593
 
   @Override
   public void wire(PrybarPivot r) {
-    this.root = r.require(new PrybarComponentLookup(this, RootComponent593.class, "root"));
+    this.root = r.find(RootComponent593.class);
+    if (root == null)
+      r.failure(new PrybarComponentLookup(this, RootComponent593.class, "root"));
   }
 
   public RootComponent593 getRoot() {

@@ -36,4 +36,10 @@ public class PrybarPivotTest {
     org.openjdk.jmh.Main.main(new String[0]);
   }
 
+  @Test
+  public void genasm() throws IOException {
+    org.objectweb.asm.util.ASMifier
+      .main(new String[] { "target-eclipse/test-classes/net/stickycode/prybar/pivot/examples/LeafComponent1.class" });
+  }
+
 }
