@@ -1,8 +1,10 @@
 package net.stickycode.prybar.pivot;
 
-public class RootComponent {
+public class RootComponent
+    implements PrybarComponent {
 
-  {
-    Prybar.register(new Component<RootComponent>(this));
+  @Override
+  public void wire(PrybarPivot prybarPivot) {
   }
+
 }
