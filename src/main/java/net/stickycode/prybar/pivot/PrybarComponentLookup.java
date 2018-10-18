@@ -27,4 +27,9 @@ public class PrybarComponentLookup
     this.fieldName = fieldName;
   }
 
+  @Override
+  public String toString() {
+    return String.format("%s: %s %s could not be resolved", component.getClass().getSimpleName(), type.getSimpleName(), fieldName);
+  }
+
 }

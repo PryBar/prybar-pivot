@@ -1,13 +1,13 @@
 package net.stickycode.prybar.pivot;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class PrybarPivot {
 
-  private Map<Class<?>, PrybarComponent> components = new HashMap<>();
+  private Map<Class<?>, PrybarComponent> components = new ConcurrentHashMap<>();
 
   private List<PrybarMessage> failures = new ArrayList<>();
 
@@ -33,6 +33,18 @@ public class PrybarPivot {
 
     failures.add(lookup);
     return null;
+  }
+
+  public boolean hasFailures() {
+    return !failures.isEmpty();
+  }
+
+  @Override
+  public String toString() {
+    if (hasFailures())
+      return failures.toString();
+
+    return components.toString();
   }
 
 }

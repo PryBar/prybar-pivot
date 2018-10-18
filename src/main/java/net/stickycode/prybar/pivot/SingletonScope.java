@@ -15,14 +15,16 @@ public class SingletonScope
 
   @Override
   public void initialise(PrybarPivot pivot) {
-    for (Class<?> c : types) {
-      try {
-        pivot.register((PrybarComponent) c.getDeclaredConstructor(null).newInstance(null));
-      }
-      catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
-        | NoSuchMethodException | SecurityException e) {
-        pivot.failure(new ComponentFailureMessage(e.getMessage()));
-      }
+    types.parallelStream().forEach(c -> initialise(c, pivot));
+  }
+
+  private void initialise(Class<?> c, PrybarPivot pivot) {
+    try {
+      pivot.register((PrybarComponent) c.getDeclaredConstructor(null).newInstance(null));
+    }
+    catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
+      | NoSuchMethodException | SecurityException e) {
+      pivot.failure(new ComponentFailureMessage(e.getMessage()));
     }
   }
 
