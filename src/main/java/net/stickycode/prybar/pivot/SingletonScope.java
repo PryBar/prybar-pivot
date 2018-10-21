@@ -14,11 +14,11 @@ public class SingletonScope
   }
 
   @Override
-  public void initialise(PrybarPivot pivot) {
+  public void initialise(PrybarRuntime pivot) {
     types.parallelStream().forEach(c -> initialise(c, pivot));
   }
 
-  private void initialise(Class<?> c, PrybarPivot pivot) {
+  private void initialise(Class<?> c, PrybarRuntime pivot) {
     try {
       pivot.register((PrybarComponent) c.getDeclaredConstructor(null).newInstance(null));
     }

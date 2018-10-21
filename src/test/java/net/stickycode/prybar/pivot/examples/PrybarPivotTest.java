@@ -11,7 +11,7 @@ import org.openjdk.jmh.annotations.Mode;
 import org.openjdk.jmh.runner.RunnerException;
 
 import net.stickycode.prybar.pivot.Prybar;
-import net.stickycode.prybar.pivot.PrybarPivot;
+import net.stickycode.prybar.pivot.PrybarRuntime;
 import net.stickycode.prybar.pivot.SingletonScope;
 
 public class PrybarPivotTest {
@@ -2019,7 +2019,7 @@ public class PrybarPivotTest {
     scope.add(RootComponent3.class);
     scope.add(RootComponent2.class);
     prybar.addScope(scope);
-    PrybarPivot pivot = prybar.pivot();
+    PrybarRuntime pivot = prybar.pivot();
     assertThat(pivot.hasFailures()).describedAs(pivot.toString()).isFalse();
   }
 

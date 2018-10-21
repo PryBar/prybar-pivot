@@ -4,7 +4,7 @@ public class RootComponent
     implements PrybarComponent {
 
   @Override
-  public void wire(PrybarPivot prybarPivot) {
+  public void wire(PrybarRuntime prybarPivot) {
   }
 
 }

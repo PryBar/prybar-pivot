@@ -6,7 +6,7 @@ public class LeafComponent
   private RootComponent root;
 
   @Override
-  public void wire(PrybarPivot r) {
+  public void wire(PrybarRuntime r) {
     this.root = r.require(new PrybarComponentLookup(this, RootComponent.class, "root"));
   }
 
