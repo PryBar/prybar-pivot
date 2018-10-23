@@ -4,6 +4,8 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.stickycode.prybar.discovery.PrybarDefinitionRegistry;
+
 public class Component<T> {
 
   private T value;
@@ -22,7 +24,7 @@ public class Component<T> {
     return value;
   }
 
-  public void wire(ComponentRegistry registry) {
+  public void wire(PrybarDefinitionRegistry registry) {
     for (Wiring w : wirings) {
       w.wire(registry);
     }
