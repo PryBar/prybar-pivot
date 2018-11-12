@@ -54,4 +54,9 @@ public class PrybarPivot
     return components.toString();
   }
 
+  @Override
+  public <T> T configuration(PrybarComponent component, Class<T> class1, String string, String value) {
+    return null;
+  }
+
 }
